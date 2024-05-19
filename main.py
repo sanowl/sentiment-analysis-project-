@@ -54,7 +54,7 @@ def setup_data_loaders(train_encodings, test_encodings, train_labels, test_label
 
 def initialize_model(vocab_size, embedding_dim, hidden_dim, output_dim):
     model = SentimentModel(vocab_size, embedding_dim, hidden_dim, output_dim)
-    return model
+    return model 
 
 def train_model(model, train_loader, criterion, optimizer, num_epochs, device):
     model.to(device)
