@@ -73,36 +73,19 @@ def train_model(model, train_loader, criterion, optimizer, num_epochs):
             optimizer.step()
 
 # Evaluate the model
-        
-        
-        
-        
-        
-        
-        
-        
-        
+def evaluate_model(model, test_loader):
     with torch.no_grad():
         correct = 0
         total = 0
         for batch in test_loader:
-
-
-
-
-
             input_ids = batch['input_ids']
+            labels = batch['labels']
             outputs = model(input_ids).squeeze(1)
-        
-        print(f'Test Accuracy: {accuracy:.4f}')
-
-def evaluate_model(model, test_loader):
-        ct / total
             predicted = torch.round(torch.sigmoid(outputs))
             total += labels.size(0)
-            labels = batch['labels']
             correct += (predicted == labels).sum().item()
-        accuracy = corre
+        accuracy = correct / total
+        print(f'Test Accuracy: {accuracy:.4f}')
 
 # Flask web application
 app = Flask(__name__)
@@ -150,5 +133,5 @@ if __name__ == '__main__':
     # Evaluate the model
     evaluate_model(model, test_loader)
 
-    app.run(debug=True)Å
     # Run the Flask app
+    app.run(debug=True)
