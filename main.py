@@ -45,6 +45,7 @@ def tokenize_data(dataset, tokenizer):
     encodings = tokenizer(dataset['text'], truncation=True, padding=True)
     return encodings
 
+
 # Set up the data loaders
 def setup_data_loaders(train_encodings, test_encodings, train_labels, test_labels, batch_size):
     train_dataset = IMDBDataset(train_encodings, train_labels)
